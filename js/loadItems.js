@@ -2,20 +2,22 @@
 function getItems() {
     return [
             {
-                id: 0001,
+                id: 001,
                 name: "Hose1",
                 picture: "assets/png/Hose01.png",
-                price: "100",
-                size: "M",
-                color: "green"
+                price: "99.99",
+                size: ["S", "M", "L"],
+                color: ["green", "blue"],
+                filter: ["male", "winter"]
             },
             {
-                id: 0002,
+                id: 002,
                 name: "Hose2",
                 picture: "assets/png/Hose01.png",
                 price: "90",
-                size: "S",
-                color: "blue"
+                size: ["S", "M", "L"],
+                color: ["green", "blue"],
+                filter: ["male", "summer"]
             }
         ]
 }

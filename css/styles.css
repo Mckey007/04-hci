@@ -13,6 +13,7 @@ main {
   width: 100%;
   height: 100%;
   background-color: var(--main-grey);
+  overflow-y: auto;
 }
 
 .page h1 {
@@ -49,6 +50,11 @@ main {
   height: 45%;
 }
 
+.backButton {
+  display: block;
+  margin-bottom: 10px;
+}
+
 .selected {
   display: block;
 }
@@ -56,3 +62,30 @@ main {
 .hidden {
   display: none;
 }
+
+/* Shopping Cart */
+
+#shopping-list {
+  width: 75%;
+  float: left;
+}
+
+#shopping-overview {
+  width: 25%;
+}
+
+.shopping-item {
+  display: flex;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.shopping-image {
+  width: 30%;
+  min-width: 350px;
+}
+
+.shopping-price {
+
+}
+

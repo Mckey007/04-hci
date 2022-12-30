@@ -52,13 +52,19 @@
         <!-- Detail Page -->
         <div id="detail-view" class="hidden page">
             <h1>Detailansicht</h1>
-            <button onclick="setPage('main-view')">Hauptansicht</button>
+            <button onclick="setPage('main-view')" class="backButton">Hauptansicht</button>
         </div>
 
         <!-- Shopping Cart -->
         <div id="shopping-cart" class="hidden page">
             <h1>Einkaufswagen</h1>
-            <button onclick="setPage('main-view')">Hauptansicht</button>
+            <button onclick="setPage('main-view')" class="backButton">Hauptansicht</button>
+            <div id="shopping-list"></div>
+            <div id="shopping-overview">
+                <p id="totalPriceText">Gesamt: </p>
+                <p id="totalPrice"></p>
+                <button onclick="buyShoppingCart()">Kaufen</button>
+            </div>
         </div>
     </main>
 

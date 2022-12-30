@@ -29,6 +29,7 @@ class shoppingItem {
     name = "";
     picture = "";
     price = 0;
-    size = "";
-    color= "";
+    size = [""];
+    color= [""];
+    filter = [""]; // categories which map to this item, e.g. ["male", "winter","hat"]
 }

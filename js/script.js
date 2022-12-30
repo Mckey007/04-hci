@@ -2,6 +2,7 @@
 var settings = {gender: "", season:""};
 var shoppingCart = [];
 var shoppingItems = [];
+var debug = true; // can be used for if-checks to display debug information. could be set to false when presenting
 
 //Load all shopping items
 shoppingItems = getItems();
