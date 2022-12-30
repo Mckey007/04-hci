@@ -49,14 +49,11 @@ function generateDetailView() {
 
 function generateShoppingView() {
     shoppingList = document.getElementById("shopping-list");
-    shoppingOverview = document.getElementById("shopping-overview");
 
     // clear everything which might have been generated earlier
     shoppingList.innerHTML = "";
-    //shoppingOverview.innerHTML = "";
 
     if (debug) shoppingCart = getItems(); // add every existing item to the cart to debug
-
     // generate the shopping cart
     shoppingCart.forEach(function(item){
 
@@ -94,8 +91,6 @@ function generateShoppingView() {
         // add list element to shopping list
         shoppingList.appendChild(listElement);
     });
-
-    // generate the overview
 
     UpdateTotalPrice();
     
