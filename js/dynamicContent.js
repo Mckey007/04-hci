@@ -40,7 +40,23 @@ function setSeason(season) {
 }
 
 function generateMainView() {
+    // clear everything which might have been generated earlier
+    document.getElementById("main-top").innerHTML = "";
+    document.getElementById("main-middle").innerHTML = "";
+    document.getElementById("main-bottom").innerHTML = "";
 
+    // TODO generate filterbar at top
+
+    IniatilizeAvatar();
+    if(settings.gender == "male" && settings.season == "winter") {
+        addClothingToAvatarByName("top", "Placeholder Hat");
+        addClothingToAvatarByName("middle", "Placeholder Jacket");
+        addClothingToAvatarByName("bottom", "Placeholder Pants");
+        addClothingToAvatarByName("bottom", "Placeholder Shoes");
+    } else { // we could add more else if combinations when needed for the prototype 
+        // give avatar no clothes
+    }
+    
 }
 
 function generateDetailView() {
@@ -54,6 +70,7 @@ function generateShoppingView() {
     shoppingList.innerHTML = "";
 
     if (debug) shoppingCart = getItems(); // add every existing item to the cart to debug
+
     // generate the shopping cart
     shoppingCart.forEach(function(item){
 
@@ -62,12 +79,18 @@ function generateShoppingView() {
         imageElement.classList.add("shopping-image");
         imageElement.setAttribute("src", item.picture);
 
+        // create name
+        nameElement = document.createElement("p");
+        nameElement.classList.add("shopping-name");
+        nameElement.innerHTML = item.name;
+
         // create price tag
         priceElement = document.createElement("p");
         priceElement.classList.add("shopping-price");
         priceElement.innerHTML = item.price + "€";
 
-        // maybe we want to display chosen size, color or name as well
+        // maybe we want to display chosen size, color, etc as well
+
 
         // add button to remove element from shopping cart, for now the button is text
         // but we could add an image with a garbage bin or an X or something
@@ -85,6 +108,7 @@ function generateShoppingView() {
         listElement.classList.add("shopping-item");
         listElement.item = item;
         listElement.appendChild(imageElement);
+        listElement.appendChild(nameElement);
         listElement.appendChild(priceElement);
         listElement.appendChild(buttonElement);
 
@@ -93,25 +117,4 @@ function generateShoppingView() {
     });
 
     UpdateTotalPrice();
-    
-}
-
-function UpdateTotalPrice() {
-    var total = 0.0;
-    var itemElement = document.getElementById("shopping-list").children;
-    for (var i = 0; i < itemElement.length; i++) {
-        total  += Number(itemElement[i].item.price);
-    }
-    document.getElementById("totalPrice").innerHTML = total + "€";
-}
-
-
-function buyShoppingCart() {
-        // remove every item from shopping cart and from html
-        shoppingCart = [];
-        shoppingCartElement = document.getElementById("shopping-cart");
-        thankYouText = document.createElement("p");
-        thankYouText.innerHTML = "Vielen Dank für ihren Einkauf!"
-        shoppingCartElement.innerHTML = "";
-        shoppingCartElement.appendChild(thankYouText);
 }

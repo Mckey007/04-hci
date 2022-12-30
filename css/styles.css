@@ -63,6 +63,26 @@ main {
   display: none;
 }
 
+/* Main View */
+
+.avatar {
+  width: 20%;
+  margin: 0 40% 0 40%;
+}
+
+.top, .middle, .bottom {
+  position: relative;
+} 
+
+.avatar img {
+  width: 100%;
+}
+
+.clothing {
+  position: absolute;
+  left: 0;
+}
+
 /* Shopping Cart */
 
 #shopping-list {
@@ -78,6 +98,11 @@ main {
   display: flex;
   width: 100%;
   padding-bottom: 10px;
+  align-items: center;
+}
+
+.shopping-item > * {
+  margin-right: 10px;
 }
 
 .shopping-image {

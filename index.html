@@ -11,9 +11,10 @@
 <body>
     <!-- Load Scripts -->
     <script src="js/shared.js"></script>
-    <script src="js/functions.js"></script>
+    <script src="js/dynamicContent.js"></script>
     <script src="js/loadItems.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/utility.js"></script>
 
     <!-- Header -->
     <div class="header">
@@ -47,6 +48,11 @@
             <h1>Hauptansicht</h1>
             <button onclick="setPage('detail-view')">Detail</button>
             <button onclick="setPage('shopping-cart')">Einkaufswagen</button>
+            <div id="main-avatar" class="avatar">
+                <div id="main-top" class="top"></div>
+                <div id="main-middle" class="middle"></div>
+                <div id="main-bottom" class="bottom"></div>
+            </div>
         </div>
 
         <!-- Detail Page -->

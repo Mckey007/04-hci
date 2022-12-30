@@ -3,50 +3,39 @@ function getItems() {
     return [
             {
                 id: 001,
-                name: "Hose1",
-                picture: "assets/png/Hose01.png",
-                price: "99.99",
-                size: ["S", "M", "L"],
+                name: "Placeholder Hat",
+                picture: "assets/png/placeholder/Hat.png",
+                price: "19.99",
+                size: [],
                 color: ["green", "blue"],
-                filter: ["male", "winter"]
+                filter: ["male", "winter", "hat"]
             },
             {
                 id: 002,
-                name: "Hose2",
-                picture: "assets/png/Hose01.png",
-                price: "90",
+                name: "Placeholder Jacket",
+                picture: "assets/png/placeholder/Jacket.png",
+                price: "19.99",
                 size: ["S", "M", "L"],
                 color: ["green", "blue"],
-                filter: ["male", "summer"]
+                filter: ["male", "winter", "jacket"]
+            },
+            {
+                id: 003,
+                name: "Placeholder Shoes",
+                picture: "assets/png/placeholder/Shoes.png",
+                price: "19.99",
+                size: ["39", "40", "41"],
+                color: ["green", "blue"],
+                filter: ["male", "winter", "shoes"]
+            },
+            {
+                id: 004,
+                name: "Placeholder Pants",
+                picture: "assets/png/placeholder/Pants.png",
+                price: "19.99",
+                size: ["S", "M", "L"],
+                color: ["green", "blue"],
+                filter: ["male", "winter", "pants"]
             }
         ]
-}
-
-function getShoppingItemById(id) {
-    var items = getItems();
-    for (var i = 0; i < items.length; i++) {
-        if (items[i].id == id) return items[i];
-    }
-    return null;
-}
-
-// filter is an array of strings, e.g. ["male", "winter"]
-// returns every item which has AT LEAST the filters
-function filterShoppingItem(filter) {
-    var items = getItems();
-    var filteredItems = [];
-
-    for (var i = 0; i < items.length; i++) {
-
-        var isFiltered = true;
-        for(var j = 0; j < filter.length; j++) {
-            if(!items[i].filter.includes(filter[j])) {
-                isFiltered = false;
-                break;
-            }
-        }
-        if(isFiltered) filteredItems.push(items[i]);
-    }
-
-    return filteredItems;
 }
