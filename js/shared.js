@@ -27,9 +27,9 @@ const Season = {
 class shoppingItem {
     id = 0;
     name = "";
-    picture = "";
+    pictures = "";
+    category = ""; // e.g. hat, earring, scarf, glasses etc.
     price = 0;
     size = [""];
-    color= [""];
-    filter = [""]; // categories which map to this item, e.g. ["male", "winter","hat"]
+    filter = [""]; // categories which map to this item, e.g. ["male", "winter"]
 }

@@ -63,24 +63,76 @@ main {
   display: none;
 }
 
-/* Main View */
+/* Main View and Detail view */
 
-.avatar {
+.main-avatar {
   width: 20%;
-  margin: 0 40% 0 40%;
+  padding: 10px 40% 10px 40%;
+}
+
+.detail-avatar {
+  width: 70%;
+  margin: 10px 15% 10px 15%;
+}
+
+.detail-avatar, .detail-avatar > * {
+  pointer-events: none;
 }
 
 .top, .middle, .bottom {
   position: relative;
 } 
 
-.avatar img {
+.main-avatar .top:hover, .main-avatar .middle:hover, .main-avatar .bottom:hover {
+  outline-style: dotted;
+  cursor: pointer;
+} 
+
+.main-avatar img, .detail-avatar img {
   width: 100%;
 }
 
 .clothing {
   position: absolute;
   left: 0;
+}
+
+.clothing-area {
+  position: absolute;
+  pointer-events: all;
+}
+
+.clothing-area:hover {
+  outline-style: dotted;
+  cursor: pointer;
+}
+
+.hat-area {
+  width: 50%;
+  height: 35%;
+  top: 3px;
+  left: 25%;
+}
+
+.scarf-area {
+  width: 50%;
+  height: 32%;
+  top: 67%;
+  left: 25%;
+}
+
+.earring-area {
+  width: 8%;
+  height: 18%;
+  top: 46%;
+  left: 59%;
+}
+
+.glasses-area {
+  width: 32%;
+  height: 14%;
+  top: 37%;
+  left: 28%;
 }
 
 /* Shopping Cart */

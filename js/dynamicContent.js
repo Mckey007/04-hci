@@ -49,18 +49,54 @@ function generateMainView() {
 
     IniatilizeAvatar();
     if(settings.gender == "male" && settings.season == "winter") {
-        addClothingToAvatarByName("top", "Placeholder Hat");
-        addClothingToAvatarByName("middle", "Placeholder Jacket");
-        addClothingToAvatarByName("bottom", "Placeholder Pants");
-        addClothingToAvatarByName("bottom", "Placeholder Shoes");
-    } else { // we could add more else if combinations when needed for the prototype 
-        // give avatar no clothes
+        addClothingToAvatarByName("top", "Wintermütze Zipfel");
+        addClothingToAvatarByName("top", "Schal");
+        addClothingToAvatarByName("top", "Brille");
+        addClothingToAvatarByName("top", "Ohrring");
+    } else if(settings.gender == "female" && settings.season == "winter") {
+        addClothingToAvatarByName("top", "Wintermütze Zipfel");
+        addClothingToAvatarByName("top", "Schal");
+        addClothingToAvatarByName("top", "Brille");
+        addClothingToAvatarByName("top", "Ohrring");
     }
     
 }
 
 function generateDetailView() {
+    detailAvatar = document.getElementById("detail-avatar");
 
+    // clear everything which might have been generated earlier
+    detailAvatar.innerHTML = "";
+    detailElement.setAttribute("onclick", "");
+
+    // generate the clickable areas for each clothing type, e.g. hat, scarf etc.
+    if(detailElement.classList.contains("top")) {
+        hatElement = document.createElement("div");
+        hatElement.classList.add("clothing-area");
+        hatElement.classList.add("hat-area");
+        hatElement.addEventListener("click", () => {generateDetailClothingList("hat")});
+        detailElement.appendChild(hatElement);
+
+        earringElement = document.createElement("div");
+        earringElement.classList.add("clothing-area");
+        earringElement.classList.add("earring-area");
+        earringElement.addEventListener("click", () => {generateDetailClothingList("earring")});
+        detailElement.appendChild(earringElement);
+
+        scarfElement = document.createElement("div");
+        scarfElement.classList.add("clothing-area");
+        scarfElement.classList.add("scarf-area");
+        scarfElement.addEventListener("click", () => {generateDetailClothingList("scarf")});
+        detailElement.appendChild(scarfElement);
+
+        glassesElement = document.createElement("div");
+        glassesElement.classList.add("clothing-area");
+        glassesElement.classList.add("glasses-area");
+        glassesElement.addEventListener("click", () => {generateDetailClothingList("glasses")});
+        detailElement.appendChild(glassesElement);
+    }
+
+    detailAvatar.appendChild(detailElement);
 }
 
 function generateShoppingView() {
@@ -77,7 +113,7 @@ function generateShoppingView() {
         // create image
         imageElement = document.createElement("img");
         imageElement.classList.add("shopping-image");
-        imageElement.setAttribute("src", item.picture);
+        imageElement.setAttribute("src", getPicture(item));
 
         // create name
         nameElement = document.createElement("p");

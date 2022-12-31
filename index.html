@@ -30,8 +30,8 @@
         <!-- Select Gender Page -->
         <div id="select-gender" class="selected page">
             <h1>Wähle das Geschlecht aus:</h1>
-            <button class="button-2-1" onclick="setGender('male')">Männlich</button>
-            <button class="button-2-1" onclick="setGender('female')">Weiblich</button>
+            <button class="button-2-1" onclick="setGender('male')">Herren</button>
+            <button class="button-2-1" onclick="setGender('female')">Damen</button>
         </div>
 
         <!-- Select Season Page -->
@@ -46,12 +46,11 @@
         <!-- Main Page -->
         <div id="main-view" class="hidden page">
             <h1>Hauptansicht</h1>
-            <button onclick="setPage('detail-view')">Detail</button>
             <button onclick="setPage('shopping-cart')">Einkaufswagen</button>
-            <div id="main-avatar" class="avatar">
-                <div id="main-top" class="top"></div>
-                <div id="main-middle" class="middle"></div>
-                <div id="main-bottom" class="bottom"></div>
+            <div id="main-avatar" class="main-avatar">
+                <div id="main-top" class="top" onclick="setDetail(this)"></div>
+                <div id="main-middle" class="middle" onclick="setDetail(this)"></div>
+                <div id="main-bottom" class="bottom" onclick="setDetail(this)"></div>
             </div>
         </div>
 
@@ -59,6 +58,9 @@
         <div id="detail-view" class="hidden page">
             <h1>Detailansicht</h1>
             <button onclick="setPage('main-view')" class="backButton">Hauptansicht</button>
+            <button onclick="setPage('shopping-cart')">Einkaufswagen</button>
+            <div id="detail-avatar" class="detail-avatar">
+            </div>
         </div>
 
         <!-- Shopping Cart -->
