@@ -44,22 +44,15 @@ function generateMainView() {
     document.getElementById("main-top").innerHTML = "";
     document.getElementById("main-middle").innerHTML = "";
     document.getElementById("main-bottom").innerHTML = "";
-
     // TODO generate filterbar at top
-
     IniatilizeAvatar();
-    if(settings.gender == "male" && settings.season == "winter") {
-        addClothingToAvatarByName("top", "Wintermütze Zipfel");
-        addClothingToAvatarByName("top", "Schal");
-        addClothingToAvatarByName("top", "Brille");
-        addClothingToAvatarByName("top", "Ohrring");
-    } else if(settings.gender == "female" && settings.season == "winter") {
-        addClothingToAvatarByName("top", "Wintermütze Zipfel");
-        addClothingToAvatarByName("top", "Schal");
-        addClothingToAvatarByName("top", "Brille");
-        addClothingToAvatarByName("top", "Ohrring");
+
+    // add start, give default clothes and everytime after that custom clothes chosen by the user
+    if (giveDefaultClothes) {
+        addDefaultClothes();
+    } else {
+        addCustomClothes();
     }
-    
 }
 
 function generateDetailView() {
@@ -74,25 +67,25 @@ function generateDetailView() {
         hatElement = document.createElement("div");
         hatElement.classList.add("clothing-area");
         hatElement.classList.add("hat-area");
-        hatElement.addEventListener("click", () => {generateDetailClothingList("hat")});
+        hatElement.addEventListener("click", () => {addDetailClothingList("hat")});
         detailElement.appendChild(hatElement);
 
         earringElement = document.createElement("div");
         earringElement.classList.add("clothing-area");
         earringElement.classList.add("earring-area");
-        earringElement.addEventListener("click", () => {generateDetailClothingList("earring")});
+        earringElement.addEventListener("click", () => {addDetailClothingList("earring")});
         detailElement.appendChild(earringElement);
 
         scarfElement = document.createElement("div");
         scarfElement.classList.add("clothing-area");
         scarfElement.classList.add("scarf-area");
-        scarfElement.addEventListener("click", () => {generateDetailClothingList("scarf")});
+        scarfElement.addEventListener("click", () => {addDetailClothingList("scarf")});
         detailElement.appendChild(scarfElement);
 
         glassesElement = document.createElement("div");
         glassesElement.classList.add("clothing-area");
         glassesElement.classList.add("glasses-area");
-        glassesElement.addEventListener("click", () => {generateDetailClothingList("glasses")});
+        glassesElement.addEventListener("click", () => {addDetailClothingList("glasses")});
         detailElement.appendChild(glassesElement);
     }
 
@@ -104,8 +97,6 @@ function generateShoppingView() {
 
     // clear everything which might have been generated earlier
     shoppingList.innerHTML = "";
-
-    if (debug) shoppingCart = getItems(); // add every existing item to the cart to debug
 
     // generate the shopping cart
     shoppingCart.forEach(function(item){

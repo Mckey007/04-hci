@@ -15,6 +15,9 @@
     <script src="js/loadItems.js"></script>
     <script src="js/script.js"></script>
     <script src="js/utility.js"></script>
+    <script src="js/avatar.js"></script>
+    <script src="js/detailList.js"></script>
+    <script src="js/item.js"></script>
 
     <!-- Header -->
     <div class="header">
@@ -57,9 +60,12 @@
         <!-- Detail Page -->
         <div id="detail-view" class="hidden page">
             <h1>Detailansicht</h1>
-            <button onclick="setPage('main-view')" class="backButton">Hauptansicht</button>
-            <button onclick="setPage('shopping-cart')">Einkaufswagen</button>
-            <div id="detail-avatar" class="detail-avatar">
+            <div id="buttons">
+                <button id="back-button" onclick="setPage('main-view')" class="backButton">Zurück</button>
+                <button onclick="setPage('shopping-cart')">Einkaufswagen</button>
+            </div>
+            <div id="detail-avatar" class="detail-avatar"></div>
+            <div id="detail-list" class="hidden"></div>
             </div>
         </div>
 

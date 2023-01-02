@@ -59,7 +59,7 @@ main {
   display: block;
 }
 
-.hidden {
+.hidden, #detail-list.hidden {
   display: none;
 }
 
@@ -73,6 +73,12 @@ main {
 .detail-avatar {
   width: 70%;
   margin: 10px 15% 10px 15%;
+}
+
+.detail-avatar.left {
+  width: 35%;
+  margin: 70px 5% 10px 0%;
+  float: left;
 }
 
 .detail-avatar, .detail-avatar > * {
@@ -133,6 +139,34 @@ main {
   height: 14%;
   top: 37%;
   left: 28%;
+}
+
+#detail-list {
+  display: flex;
+  flex-wrap: wrap;
+  border-style: solid;
+  border-color: var(--dark-blue);
+  height: 70%;
+  overflow-y: auto;
+}
+
+.list-element {
+  width: 50%;
+  margin: 30px 0 30px 0;
+  order: 1;
+}
+
+.list-element img {
+  display: block;
+  margin: auto;
+}
+
+.list-element.active {
+  order: 0;
+}
+
+.list-element:hover img {
+
 }
 
 /* Shopping Cart */
