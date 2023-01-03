@@ -59,7 +59,7 @@ main {
   display: block;
 }
 
-.hidden, #detail-list.hidden {
+.hidden, #detail-list.hidden, #context-buttons.hidden {
   display: none;
 }
 
@@ -141,6 +141,34 @@ main {
   left: 28%;
 }
 
+.gloves-area {
+  width: 70%;
+  height: 22%;
+  top: 56%;
+  left: 17%;
+}
+
+.top-piece-area {
+  width: 71%;
+  height: 54%;
+  top: 1%;
+  left: 17%;
+}
+
+.bottom-piece-area {
+  width: 71%;
+  height: 74%;
+  top: 1%;
+  left: 17%;
+}
+
+.shoes-area {
+  width: 75%;
+  height: 24%;
+  top: 75%;
+  left: 15%;
+}
+
 #detail-list {
   display: flex;
   flex-wrap: wrap;
@@ -161,12 +189,17 @@ main {
   margin: auto;
 }
 
-.list-element.active {
+.list-element.activeItem {
   order: 0;
 }
 
 .list-element:hover img {
 
+}
+
+#context-buttons {
+  display: flex;
+  margin: 10px 0 0 40%;
 }
 
 /* Shopping Cart */

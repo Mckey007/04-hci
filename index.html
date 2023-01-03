@@ -13,11 +13,11 @@
     <script src="js/shared.js"></script>
     <script src="js/dynamicContent.js"></script>
     <script src="js/loadItems.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/utility.js"></script>
-    <script src="js/avatar.js"></script>
-    <script src="js/detailList.js"></script>
-    <script src="js/item.js"></script>
+    <script src="js/backend/script.js"></script>
+    <script src="js/backend/utility.js"></script>
+    <script src="js/backend/avatar.js"></script>
+    <script src="js/backend/detailList.js"></script>
+    <script src="js/backend/item.js"></script>
 
     <!-- Header -->
     <div class="header">
@@ -26,6 +26,7 @@
             <a class="active" href="#home">Home</a>
             <a href="#contact">Contact</a>
             <a href="#about">About</a>
+            <a href="#konto">Mein Konto</a>
         </div>
     </div>
     <!-- Main content -->
@@ -49,6 +50,7 @@
         <!-- Main Page -->
         <div id="main-view" class="hidden page">
             <h1>Hauptansicht</h1>
+            <button onclick="setPage('select-gender')">Zurück</button>
             <button onclick="setPage('shopping-cart')">Einkaufswagen</button>
             <div id="main-avatar" class="main-avatar">
                 <div id="main-top" class="top" onclick="setDetail(this)"></div>
@@ -66,6 +68,13 @@
             </div>
             <div id="detail-avatar" class="detail-avatar"></div>
             <div id="detail-list" class="hidden"></div>
+            <div id="context-buttons" class="hidden">
+                <div id="active-item-info">
+                    <select id="color-select" onchange="changeColor()">
+                        <!-- Dynamically generated colors -->
+                    </select>
+                </div>
+                <button onclick="addToShoppingCart()">In den Einkaufswagen</button>
             </div>
         </div>
 

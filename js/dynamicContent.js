@@ -30,12 +30,14 @@ function setPage(path) {
 //Set Gender and change to Season-page
 function setGender(gender) {
     settings.gender = gender;
+    giveDefaultClothes = true;
     setPage("select-season");
 }
 
 //Set Season and change to Main-page
 function setSeason(season) {
     settings.season = season;
+    giveDefaultClothes = true;
     setPage("main-view");
 }
 
@@ -64,29 +66,16 @@ function generateDetailView() {
 
     // generate the clickable areas for each clothing type, e.g. hat, scarf etc.
     if(detailElement.classList.contains("top")) {
-        hatElement = document.createElement("div");
-        hatElement.classList.add("clothing-area");
-        hatElement.classList.add("hat-area");
-        hatElement.addEventListener("click", () => {addDetailClothingList("hat")});
-        detailElement.appendChild(hatElement);
-
-        earringElement = document.createElement("div");
-        earringElement.classList.add("clothing-area");
-        earringElement.classList.add("earring-area");
-        earringElement.addEventListener("click", () => {addDetailClothingList("earring")});
-        detailElement.appendChild(earringElement);
-
-        scarfElement = document.createElement("div");
-        scarfElement.classList.add("clothing-area");
-        scarfElement.classList.add("scarf-area");
-        scarfElement.addEventListener("click", () => {addDetailClothingList("scarf")});
-        detailElement.appendChild(scarfElement);
-
-        glassesElement = document.createElement("div");
-        glassesElement.classList.add("clothing-area");
-        glassesElement.classList.add("glasses-area");
-        glassesElement.addEventListener("click", () => {addDetailClothingList("glasses")});
-        detailElement.appendChild(glassesElement);
+        detailElement.appendChild(createClickableArea("hat"));
+        detailElement.appendChild(createClickableArea("earring"));
+        detailElement.appendChild(createClickableArea("scarf"));
+        detailElement.appendChild(createClickableArea("glasses"));
+    } else if (detailElement.classList.contains("middle")) {
+        detailElement.appendChild(createClickableArea("top-piece"));
+        detailElement.appendChild(createClickableArea("gloves"));
+    } else if (detailElement.classList.contains("bottom")) {
+        detailElement.appendChild(createClickableArea("bottom-piece"));
+        detailElement.appendChild(createClickableArea("shoes"));
     }
 
     detailAvatar.appendChild(detailElement);
@@ -97,24 +86,23 @@ function generateShoppingView() {
 
     // clear everything which might have been generated earlier
     shoppingList.innerHTML = "";
-
     // generate the shopping cart
-    shoppingCart.forEach(function(item){
-
+    shoppingCart.forEach(function(entry){
+        
         // create image
         imageElement = document.createElement("img");
         imageElement.classList.add("shopping-image");
-        imageElement.setAttribute("src", getPicture(item));
+        imageElement.setAttribute("src", getPicture(entry.item, entry.color));
 
         // create name
         nameElement = document.createElement("p");
         nameElement.classList.add("shopping-name");
-        nameElement.innerHTML = item.name;
+        nameElement.innerHTML = entry.item.name;
 
         // create price tag
         priceElement = document.createElement("p");
         priceElement.classList.add("shopping-price");
-        priceElement.innerHTML = item.price + "€";
+        priceElement.innerHTML = entry.item.price + "€";
 
         // maybe we want to display chosen size, color, etc as well
 
@@ -125,7 +113,7 @@ function generateShoppingView() {
         buttonElement.innerHTML = "Entfernen";
         buttonElement.addEventListener("click", (event) => {
             // remove item from shopping cart and from html
-            shoppingCart = shoppingCart.filter(item => item !== event.srcElement.parentNode.item);
+            shoppingCart = shoppingCart.filter(entry => entry.item !== event.srcElement.parentNode.item);
             event.srcElement.parentNode.remove();
             UpdateTotalPrice();
         });
@@ -133,7 +121,7 @@ function generateShoppingView() {
         // create list element, which combines image, price, etc. into one
         listElement = document.createElement("div");
         listElement.classList.add("shopping-item");
-        listElement.item = item;
+        listElement.item = entry.item;
         listElement.appendChild(imageElement);
         listElement.appendChild(nameElement);
         listElement.appendChild(priceElement);
