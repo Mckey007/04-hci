@@ -6,7 +6,7 @@ function UpdateTotalPrice() {
     for (var i = 0; i < itemElement.length; i++) {
         total  += Number(itemElement[i].item.price);
     }
-    document.getElementById("totalPrice").innerHTML = total + "€";
+    document.getElementById("totalPrice").innerHTML = total.toFixed(2) + "€";
 }
 
 function buyShoppingCart() {
