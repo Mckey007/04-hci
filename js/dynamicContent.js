@@ -21,8 +21,7 @@ function setPage(path) {
     document.getElementById(path).classList.add("selected");
     document.getElementById(path).classList.remove("hidden");
 
-    updateNavigation();
-    
+
     // generate dynamic page content
     if (path == "select-gender") generateGenderView();
     if (path == "select-season") generateSeasonView();
@@ -30,7 +29,7 @@ function setPage(path) {
     if (path == "detail-view") generateDetailView();
     if (path == "shopping-cart") generateShoppingView();
 
-
+    updateNavigation();
 }
 
 //Set Gender and change to Season-page
