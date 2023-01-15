@@ -2,9 +2,9 @@
 
 function UpdateTotalPrice() {
     var total = 0.0;
-    var itemElement = document.getElementById("shopping-list").children;
-    for (var i = 0; i < itemElement.length; i++) {
-        total  += Number(itemElement[i].item.price);
+    //itemElement = document.getElementById("shopping-list").children;
+    for (var i = 0; i < shoppingCart.length; i++) {
+        total  += Number(shoppingCart[i].item.price);
     }
     document.getElementById("totalPrice").innerHTML = total.toFixed(2) + "€";
 }
@@ -13,10 +13,12 @@ function buyShoppingCart() {
         // remove every item from shopping cart and from html
         shoppingCart = [];
         shoppingCartElement = document.getElementById("shopping-cart");
-        thankYouText = document.createElement("p");
+        thankYouText = document.createElement("button");
         thankYouText.innerHTML = "Vielen Dank für ihren Einkauf!"
+        thankYouText.classList.add("thank-you");
         shoppingCartElement.innerHTML = "";
         shoppingCartElement.appendChild(thankYouText);
+        updateAmountItems();
 }
 
 function addToShoppingCart() {
@@ -25,6 +27,7 @@ function addToShoppingCart() {
     var copiedItem = Object.assign({}, activeShoppingItem[activeItem.category]);
 
     shoppingCart.push(copiedItem);
+    updateAmountItems();
 }
 
 function changeColor() {
@@ -38,6 +41,7 @@ function changeColor() {
 
 // sets up the detail view, depending on what part of the avatar was clicked (top, middle, bottom)
 function setDetail(event) {
+    detailElement = null;
     elements = event.getElementsByClassName('clothing-area');
     for(var i = 0; i < elements.length; i++) {
         elements[i].remove();

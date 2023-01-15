@@ -19,19 +19,30 @@
     <script src="js/backend/avatar.js"></script>
     <script src="js/backend/detailList.js"></script>
     <script src="js/backend/item.js"></script>
+    <script src="js/backend/navigation.js"></script>
 
     <!-- Header -->
     <div class="header">
-        <img class="logo" src="assets/png/logo.png">
+        <button id="logo-button" onclick="setPage('select-gender')">
+            <img class="logo" src="assets/png/logo.png">
+        </button>
+        <div id="navigation"></div>
         <div class="header-right">
             <a class="active" href="#home">Home</a>
             <a href="#contact">Contact</a>
             <a href="#about">About</a>
             <a href="#konto">Mein Konto</a>
+            <div id="shopping-button">
+                <button onclick="setPage('shopping-cart')">
+                    <img src="assets/png/einkaufswagen_weiss.png"></img>
+                </button>
+                <div id="cart-amount">0</div>
+            </div>
         </div>
     </div>
     <!-- Main content -->
     <main>
+        
         <!-- Select Gender Page -->
         <div id="select-gender" class="selected page">
             <h1>Wähle das Geschlecht aus:</h1>
@@ -51,8 +62,9 @@
         <!-- Main Page -->
         <div id="main-view" class="hidden page">
             <h1>Hauptansicht</h1>
-            <button onclick="setPage('select-gender')">Zurück</button>
-            <button onclick="setPage('shopping-cart')">Einkaufswagen</button>
+            <div class="buttons">
+                <button class="standard-button" onclick="setPage('select-gender')">Zurück</button>
+            </div>
             <div id="main-avatar" class="main-avatar">
                 <div id="main-top" class="top" onclick="setDetail(this)"></div>
                 <div id="main-middle" class="middle" onclick="setDetail(this)"></div>
@@ -63,10 +75,7 @@
         <!-- Detail Page -->
         <div id="detail-view" class="hidden page">
             <h1>Detailansicht</h1>
-            <div id="buttons">
-                <button id="back-button" onclick="setPage('main-view')" class="backButton">Zurück</button>
-                <button onclick="setPage('shopping-cart')">Einkaufswagen</button>
-            </div>
+            <button id="back-button" onclick="setPage('main-view')" class="backButton standard-button">Zurück</button>
             <div id="detail-avatar" class="detail-avatar"></div>
             <div id="detail-list" class="hidden"></div>
             <div id="context-buttons" class="hidden">
@@ -82,10 +91,11 @@
         <!-- Shopping Cart -->
         <div id="shopping-cart" class="hidden page">
             <h1>Einkaufswagen</h1>
-            <button onclick="setPage('main-view')" class="backButton">Hauptansicht</button>
+            <button onclick="setPage('main-view')" class="backButton standard-button">Hauptansicht</button>
             <div id="shopping-list"></div>
             <div id="shopping-overview">
                 <p id="totalPriceText">Gesamt: </p>
+                <p id="totalAmount"></p>
                 <p id="totalPrice"></p>
                 <button onclick="buyShoppingCart()">Kaufen</button>
             </div>

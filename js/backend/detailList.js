@@ -2,6 +2,7 @@
 function addDetailClothingList(category) {
 
     removeDetailClothingList(category); // clean reset
+    addDetailSlotToNavigation(category);
 
     // change from "normal" detailview to the one where the elements are listed on the right
     document.getElementById("detail-avatar").classList.add("left");
@@ -49,6 +50,7 @@ function addDetailClothingList(category) {
 }
 
 function updateDetailList(event) {
+
     // do nothing if active item was clicked
     if(event.srcElement.classList.contains("activeItem") || event.srcElement.parentElement.classList.contains("activeItem")) {
         return;
@@ -77,6 +79,7 @@ function redrawDetailList(category) {
 }
 
 function removeDetailClothingList(category) {
+    updateNavigation();
     document.getElementById("detail-avatar").classList.remove("left");
     document.getElementById("back-button").setAttribute("onclick", "setPage('main-view')");
     document.getElementById("color-select").innerHTML = "";

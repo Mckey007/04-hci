@@ -64,6 +64,8 @@ function addClothingToAvatar(itemID, color = "", zIndex = "auto") {
 }
 
 function addDefaultClothes() {
+    resetActiveClothes();
+
     if(settings.gender == "male" && settings.season == "winter") {
         addClothingToAvatarByName("Wintermütze mit Streifen, Zipfel", "blau");
         addClothingToAvatarByName("Schal");
@@ -80,6 +82,15 @@ function addDefaultClothes() {
         addClothingToAvatarByName("Damenschuhe");
     }
     giveDefaultClothes = false;
+}
+
+function resetActiveClothes() {
+    for (var category in activeShoppingItem) {
+        if (activeShoppingItem.hasOwnProperty(category) && activeShoppingItem[category].item != null ) {
+            activeShoppingItem[category].item = null;
+            activeShoppingItem[category].color= null;
+        }
+    }
 }
 
 function addCustomClothes() {

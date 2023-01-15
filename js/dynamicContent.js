@@ -21,10 +21,16 @@ function setPage(path) {
     document.getElementById(path).classList.add("selected");
     document.getElementById(path).classList.remove("hidden");
 
+    updateNavigation();
+    
     // generate dynamic page content
+    if (path == "select-gender") generateGenderView();
+    if (path == "select-season") generateSeasonView();
     if (path == "main-view") generateMainView();
     if (path == "detail-view") generateDetailView();
     if (path == "shopping-cart") generateShoppingView();
+
+
 }
 
 //Set Gender and change to Season-page
@@ -41,20 +47,38 @@ function setSeason(season) {
     setPage("main-view");
 }
 
+function generateGenderView() {
+    settings.gender = "";
+    settings.season = "";
+}
+
+function generateSeasonView() {
+    settings.season = "";
+}
+
 function generateMainView() {
     // clear everything which might have been generated earlier
     document.getElementById("main-top").innerHTML = "";
     document.getElementById("main-middle").innerHTML = "";
     document.getElementById("main-bottom").innerHTML = "";
+    detailElement = null;
+
     // TODO generate filterbar at top
     IniatilizeAvatar();
-
+    
     // add start, give default clothes and everytime after that custom clothes chosen by the user
     if (giveDefaultClothes) {
         addDefaultClothes();
     } else {
         addCustomClothes();
     }
+}
+
+// shows how many items are in the shopping cart next to the button/icon of the shopping cart
+function updateAmountItems() {
+    var number = shoppingCart.length;
+    document.getElementById("cart-amount").innerHTML = number;
+    document.getElementById("totalAmount").innerHTML = number + " Artikel";
 }
 
 function generateDetailView() {
@@ -83,9 +107,10 @@ function generateDetailView() {
 
 function generateShoppingView() {
     shoppingList = document.getElementById("shopping-list");
-
+    
     // clear everything which might have been generated earlier
     shoppingList.innerHTML = "";
+    resetNavigation(document.getElementById("navigation"));
     // generate the shopping cart
     shoppingCart.forEach(function(entry){
         
@@ -113,15 +138,19 @@ function generateShoppingView() {
         buttonElement.innerHTML = "Entfernen";
         buttonElement.addEventListener("click", (event) => {
             // remove item from shopping cart and from html
-            shoppingCart = shoppingCart.filter(entry => entry.item !== event.srcElement.parentNode.item);
+            var index = shoppingCart.indexOf(event.srcElement.parentNode.item);
+            if (index > -1) { 
+                shoppingCart.splice(index, 1);
+            }
             event.srcElement.parentNode.remove();
+            updateAmountItems();
             UpdateTotalPrice();
         });
 
         // create list element, which combines image, price, etc. into one
         listElement = document.createElement("div");
         listElement.classList.add("shopping-item");
-        listElement.item = entry.item;
+        listElement.item = entry;
         listElement.appendChild(imageElement);
         listElement.appendChild(nameElement);
         listElement.appendChild(priceElement);

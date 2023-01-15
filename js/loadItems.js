@@ -92,7 +92,7 @@ function getItems() {
                 id: 006,
                 name: "Ohrring #1",
                 pictures: {
-                    "default": "assets/png/clothing/earrings/Ohrring_1.png",
+                    "Standard": "assets/png/clothing/earrings/Ohrring_1.png",
                 },
                 category: "earring",
                 price: "14.99",
@@ -103,7 +103,7 @@ function getItems() {
                 id: 007,
                 name: "Ohrring #2",
                 pictures: {
-                    "default": "assets/png/clothing/earrings/Ohrring_2.png",
+                    "Standard": "assets/png/clothing/earrings/Ohrring_2.png",
                 },
                 category: "earring",
                 price: "14.99",
@@ -114,7 +114,7 @@ function getItems() {
                 id: 108,
                 name: "Ohrring #3",
                 pictures: {
-                    "default": "assets/png/clothing/earrings/Ohrring_3.png",
+                    "Standard": "assets/png/clothing/earrings/Ohrring_3.png",
                 },
                 category: "earring",
                 price: "14.99",
@@ -125,7 +125,7 @@ function getItems() {
                 id: 109,
                 name: "Ohrring #4",
                 pictures: {
-                    "default": "assets/png/clothing/earrings/Ohrring_4.png",
+                    "Standard": "assets/png/clothing/earrings/Ohrring_4.png",
                 },
                 category: "earring",
                 price: "14.99",
@@ -136,7 +136,7 @@ function getItems() {
                 id: 010,
                 name: "Ohrring #5",
                 pictures: {
-                    "default": "assets/png/clothing/earrings/Ohrring_5.png",
+                    "Standard": "assets/png/clothing/earrings/Ohrring_5.png",
                 },
                 category: "earring",
                 price: "14.99",
@@ -147,7 +147,7 @@ function getItems() {
                 id: 011,
                 name: "Ohrring #6",
                 pictures: {
-                    "default": "assets/png/clothing/earrings/Ohrring_6.png",
+                    "Standard": "assets/png/clothing/earrings/Ohrring_6.png",
                 },
                 category: "earring",
                 price: "14.99",
@@ -158,7 +158,7 @@ function getItems() {
                 id: 012,
                 name: "Ohrring #7",
                 pictures: {
-                    "default": "assets/png/clothing/earrings/Ohrring_7.png",
+                    "Standard": "assets/png/clothing/earrings/Ohrring_7.png",
                 },
                 category: "earring",
                 price: "14.99",
@@ -169,7 +169,7 @@ function getItems() {
                 id: 013,
                 name: "Ohrring #8",
                 pictures: {
-                    "default": "assets/png/clothing/earrings/Ohrring_8.png",
+                    "Standard": "assets/png/clothing/earrings/Ohrring_8.png",
                 },
                 category: "earring",
                 price: "14.99",
@@ -180,7 +180,7 @@ function getItems() {
                 id: 014,
                 name: "Ohrring #9",
                 pictures: {
-                    "default": "assets/png/clothing/earrings/Ohrring_9.png",
+                    "Standard": "assets/png/clothing/earrings/Ohrring_9.png",
                 },
                 category: "earring",
                 price: "14.99",
@@ -191,7 +191,7 @@ function getItems() {
                 id: 015,
                 name: "Ohrring #10",
                 pictures: {
-                    "default": "assets/png/clothing/earrings/Ohrring_10.png",
+                    "Standard": "assets/png/clothing/earrings/Ohrring_10.png",
                 },
                 category: "earring",
                 price: "14.99",
@@ -202,7 +202,7 @@ function getItems() {
                 id: 016,
                 name: "Ohrring #11",
                 pictures: {
-                    "default": "assets/png/clothing/earrings/Ohrring_11.png",
+                    "Standard": "assets/png/clothing/earrings/Ohrring_11.png",
                 },
                 category: "earring",
                 price: "14.99",
@@ -213,7 +213,7 @@ function getItems() {
                 id: 017,
                 name: "Ohrring #12",
                 pictures: {
-                    "default": "assets/png/clothing/earrings/Ohrring_12.png",
+                    "Standard": "assets/png/clothing/earrings/Ohrring_12.png",
                 },
                 category: "earring",
                 price: "14.99",
@@ -225,7 +225,7 @@ function getItems() {
                 id: 021,
                 name: "Brille #1",
                 pictures: {
-                    "default": "assets/png/clothing/glasses/Brille_1.png",
+                    "Standard": "assets/png/clothing/glasses/Brille_1.png",
                 },
                 category: "glasses",
                 price: "25.99",
@@ -236,7 +236,7 @@ function getItems() {
                 id: 022,
                 name: "Brille #2",
                 pictures: {
-                    "default": "assets/png/clothing/glasses/Brille_2.png",
+                    "Standard": "assets/png/clothing/glasses/Brille_2.png",
                 },
                 category: "glasses",
                 price: "25.99",
@@ -247,7 +247,7 @@ function getItems() {
                 id: 023,
                 name: "Brille #3",
                 pictures: {
-                    "default": "assets/png/clothing/glasses/Brille_3.png",
+                    "Standard": "assets/png/clothing/glasses/Brille_3.png",
                 },
                 category: "glasses",
                 price: "25.99",
@@ -258,7 +258,7 @@ function getItems() {
                 id: 024,
                 name: "Brille #4",
                 pictures: {
-                    "default": "assets/png/clothing/glasses/Brille_4.png",
+                    "Standard": "assets/png/clothing/glasses/Brille_4.png",
                 },
                 category: "glasses",
                 price: "25.99",
@@ -269,7 +269,7 @@ function getItems() {
                 id: 025,
                 name: "Brille #5",
                 pictures: {
-                    "default": "assets/png/clothing/glasses/Brille_5.png",
+                    "Standard": "assets/png/clothing/glasses/Brille_5.png",
                 },
                 category: "glasses",
                 price: "25.99",
@@ -280,7 +280,7 @@ function getItems() {
                 id: 026,
                 name: "Brille #6",
                 pictures: {
-                    "default": "assets/png/clothing/glasses/Brille_6.png",
+                    "Standard": "assets/png/clothing/glasses/Brille_6.png",
                 },
                 category: "glasses",
                 price: "25.99",
@@ -291,7 +291,7 @@ function getItems() {
                 id: 027,
                 name: "Brille #7",
                 pictures: {
-                    "default": "assets/png/clothing/glasses/Brille_7.png",
+                    "Standard": "assets/png/clothing/glasses/Brille_7.png",
                 },
                 category: "glasses",
                 price: "25.99",
@@ -302,7 +302,7 @@ function getItems() {
                 id: 128,
                 name: "Brille #8",
                 pictures: {
-                    "default": "assets/png/clothing/glasses/Brille_8.png",
+                    "Standard": "assets/png/clothing/glasses/Brille_8.png",
                 },
                 category: "glasses",
                 price: "25.99",
@@ -313,7 +313,7 @@ function getItems() {
                 id: 129,
                 name: "Brille #9",
                 pictures: {
-                    "default": "assets/png/clothing/glasses/Brille_9.png",
+                    "Standard": "assets/png/clothing/glasses/Brille_9.png",
                 },
                 category: "glasses",
                 price: "25.99",
@@ -324,7 +324,7 @@ function getItems() {
                 id: 030,
                 name: "Brille #10",
                 pictures: {
-                    "default": "assets/png/clothing/glasses/Brille_10.png",
+                    "Standard": "assets/png/clothing/glasses/Brille_10.png",
                 },
                 category: "glasses",
                 price: "25.99",
@@ -335,7 +335,7 @@ function getItems() {
                 id: 031,
                 name: "Brille #11",
                 pictures: {
-                    "default": "assets/png/clothing/glasses/Brille_11.png",
+                    "Standard": "assets/png/clothing/glasses/Brille_11.png",
                 },
                 category: "glasses",
                 price: "25.99",
@@ -346,7 +346,7 @@ function getItems() {
                 id: 032,
                 name: "Brille #12",
                 pictures: {
-                    "default": "assets/png/clothing/glasses/Brille_12.png",
+                    "Standard": "assets/png/clothing/glasses/Brille_12.png",
                 },
                 category: "glasses",
                 price: "25.99",
@@ -357,7 +357,7 @@ function getItems() {
                 id: 033,
                 name: "Brille #13",
                 pictures: {
-                    "default": "assets/png/clothing/glasses/Brille_13.png",
+                    "Standard": "assets/png/clothing/glasses/Brille_13.png",
                 },
                 category: "glasses",
                 price: "25.99",
