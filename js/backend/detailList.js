@@ -41,6 +41,8 @@ function addDetailClothingList(category) {
                 option.innerHTML = color;
                 colorSelect.appendChild(option);
             }
+            // add item name
+            document.getElementById("active-item-label").innerHTML = activeItem.name + ": " + activeItem.price + "€";
 
         }
         listElement.appendChild(element);

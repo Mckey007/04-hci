@@ -51,17 +51,18 @@ main {
   height: 45%;
 }
 
-button:hover, button:hover {
+button:hover, button:hover, #color-select:hover {
   background-color: var(--light-blue);
   color: var(--main-black);
+  cursor: pointer;
 }
 
-button:active, button:active {
+button:active, button:active, #color-select:active {
   background-color: var(--main-blue);
   color: var(--main-hover);
 }
 
-button, #color-select {
+button, #color-select, #active-item-label {
   border-radius: 4px;
   color: var(--main-grey);
   background-color: var(--dark-blue);
@@ -69,6 +70,11 @@ button, #color-select {
   padding: 12px;
   font-size: 18px;
   text-decoration: none;
+}
+
+#active-item-label {
+  background-color: unset;
+  color: var(--main-black);
 }
 
 .backButton {
