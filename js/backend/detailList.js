@@ -10,6 +10,7 @@ function addDetailClothingList(category) {
     detailList = document.getElementById("detail-list");
 
     document.getElementById("context-buttons").classList.remove("hidden");
+    InitializeUnequipButton(category);
     detailList.classList.remove("hidden");
 
     // find every valid item to display in the list on the right, add it to html
@@ -89,4 +90,34 @@ function removeDetailClothingList(category) {
     detailList.classList.add("hidden");
     document.getElementById("context-buttons").classList.add("hidden");
     detailList.innerHTML = "";
+}
+
+function InitializeUnequipButton(category) {
+    var button = document.getElementById("unequip-button");
+    button.innerHTML = mapCategoryToGermanName(category) + " ausziehen";
+    button.setAttribute("onclick", "removeClothingFromAvatar('" + category + "')");
+    //button.addEventListener("click", () => { removeClothingFromAvatar(category) });
+}
+
+function mapCategoryToGermanName(category) {
+    switch(category) {
+        case "hat":
+            return "Mütze";
+        case "scarf":
+            return "Schal";
+        case "glasses":
+            return "Brille";
+        case "earring":
+            return "Ohrring";
+        case "top-piece":
+            return "Oberteil";
+        case "gloves":
+            return "Handschuhe";
+        case "bottom-piece":
+            return "Hose"
+        case "shoes":
+            return "Schuhe";
+        default:
+            return "";
+    }
 }

@@ -72,7 +72,24 @@ button, #color-select, #active-item-label {
   text-decoration: none;
 }
 
-#active-item-label {
+#unequip-button {
+  --main-black: #000000;
+--dark-blue: #2F4550;
+--main-blue: #586F7C;
+--light-blue: #B8DBD9;
+--main-grey: #F4F4F9;
+--main-hover: #efceb7;
+  margin-left: 10px;
+  background-color: var(--light-blue);
+  color: var(--main-black);
+}
+
+#unequip-button:hover {
+  background-color: var(--main-hover);
+  color: var(--dark-blue);
+}
+
+#active-item-label, #context-infos p {
   background-color: unset;
   color: var(--main-black);
 }
@@ -246,9 +263,17 @@ button, #color-select, #active-item-label {
 
 }
 
+#context {
+  display: flex;
+  margin-top: 10px;
+}
+
+#context-infos {
+  width: 40%;
+}
+
 #context-buttons {
   display: flex;
-  margin: 10px 0 0 40%;
 }
 
 #active-item-info {
@@ -294,6 +319,7 @@ button, #color-select, #active-item-label {
 .shopping-image {
   width: 30%;
   min-width: 350px;
+  image-rendering: crisp-edges;
 }
 
 .thank-you {

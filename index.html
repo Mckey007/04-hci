@@ -78,14 +78,20 @@
             <button id="back-button" onclick="setPage('main-view')" class="backButton standard-button">Zurück</button>
             <div id="detail-avatar" class="detail-avatar"></div>
             <div id="detail-list" class="hidden"></div>
-            <div id="context-buttons" class="hidden">
-                <div id="active-item-label"></div>
-                <div id="active-item-info">
-                    <select id="color-select" onchange="changeColor()">
-                        <!-- Dynamically generated colors -->
-                    </select>
+            <div id="context">
+                <div id="context-infos">
+                    <!-- <p>Marke: [ICON] | Material: [ICON]</p> -->
                 </div>
-                <button onclick="addToShoppingCart()">In den Einkaufswagen</button>
+                <div id="context-buttons" class="hidden">
+                    <div id="active-item-label"></div>
+                    <div id="active-item-info">
+                        <select id="color-select" onchange="changeColor()">
+                            <!-- Dynamically generated colors -->
+                        </select>
+                    </div>
+                    <button onclick="addToShoppingCart()">In den Einkaufswagen</button>
+                    <button id="unequip-button">ausziehen</button>
+                </div>
             </div>
         </div>
 
@@ -98,7 +104,7 @@
                 <p id="totalPriceText">Gesamt: </p>
                 <p id="totalAmount"></p>
                 <p id="totalPrice"></p>
-                <button onclick="buyShoppingCart()">Kaufen</button>
+                <button id="kauf-button" onclick="buyShoppingCart()">Kaufen</button>
             </div>
         </div>
     </main>

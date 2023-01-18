@@ -100,3 +100,11 @@ function addCustomClothes() {
         }
     }
 }
+
+function removeClothingFromAvatar(category) {
+    if (activeShoppingItem.hasOwnProperty(category)) {
+        activeShoppingItem[category].item = null;
+        activeShoppingItem[category].color= null;
+    }
+    redrawDetailList(category);
+}

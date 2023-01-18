@@ -110,13 +110,14 @@ function generateShoppingView() {
     // clear everything which might have been generated earlier
     shoppingList.innerHTML = "";
     resetNavigation(document.getElementById("navigation"));
+
     // generate the shopping cart
     shoppingCart.forEach(function(entry){
         
         // create image
         imageElement = document.createElement("img");
         imageElement.classList.add("shopping-image");
-        imageElement.setAttribute("src", getPicture(entry.item, entry.color));
+        imageElement.setAttribute("src", getPicture(entry.item, entry.color).replace("clothing", "unedited_pngs"));
 
         // create name
         nameElement = document.createElement("p");
@@ -158,6 +159,13 @@ function generateShoppingView() {
         // add list element to shopping list
         shoppingList.appendChild(listElement);
     });
+
+    var kaufButton = document.getElementById("kauf-button");
+    if(shoppingCart.length == 0) {
+        kaufButton.classList.add("hidden");
+    } else {
+        kaufButton.classList.remove("hidden");
+    }
 
     UpdateTotalPrice();
 }
