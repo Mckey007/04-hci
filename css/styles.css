@@ -293,6 +293,7 @@ button, #color-select, #active-item-label {
 #shopping-list {
   margin-left: 15%;
   margin-right: 15%;
+  margin-bottom: 10px;
   border-bottom-style: solid;
 }
 

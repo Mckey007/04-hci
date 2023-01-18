@@ -49,6 +49,12 @@ function addDetailClothingList(category) {
         listElement.appendChild(element);
         detailList.appendChild(listElement);
     }
+    if(activeItem == null) {
+        document.getElementById("context-buttons").classList.add("hidden");
+
+    } else {
+        document.getElementById("context-buttons").classList.remove("hidden");
+    }
     // add bar for the active item which allows for swapping color and buying
 }
 
@@ -94,9 +100,13 @@ function removeDetailClothingList(category) {
 
 function InitializeUnequipButton(category) {
     var button = document.getElementById("unequip-button");
+    if(activeShoppingItem[category].item == null) {
+        button.classList.add("hidden");
+        return;
+    }
+    button.classList.remove("hidden");
     button.innerHTML = mapCategoryToGermanName(category) + " ausziehen";
     button.setAttribute("onclick", "removeClothingFromAvatar('" + category + "')");
-    //button.addEventListener("click", () => { removeClothingFromAvatar(category) });
 }
 
 function mapCategoryToGermanName(category) {

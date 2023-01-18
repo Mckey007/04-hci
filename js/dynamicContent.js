@@ -75,7 +75,10 @@ function generateMainView() {
 
 // shows how many items are in the shopping cart next to the button/icon of the shopping cart
 function updateAmountItems() {
-    var number = shoppingCart.length;
+    var number = 0;
+    for(var i = 0; i < shoppingCart.length; i++) {
+        number += shoppingCart[i].amount;
+    }
     document.getElementById("cart-amount").innerHTML = number;
     document.getElementById("totalAmount").innerHTML = number + " Artikel";
 }
@@ -106,28 +109,32 @@ function generateDetailView() {
 
 function generateShoppingView() {
     shoppingList = document.getElementById("shopping-list");
-    
     // clear everything which might have been generated earlier
     shoppingList.innerHTML = "";
     resetNavigation(document.getElementById("navigation"));
-
+    
     // generate the shopping cart
     shoppingCart.forEach(function(entry){
-        
+
         // create image
         imageElement = document.createElement("img");
         imageElement.classList.add("shopping-image");
-        imageElement.setAttribute("src", getPicture(entry.item, entry.color).replace("clothing", "unedited_pngs"));
+        imageElement.setAttribute("src", getPicture(entry.cloth.item, entry.color).replace("clothing", "unedited_pngs"));
 
         // create name
         nameElement = document.createElement("p");
         nameElement.classList.add("shopping-name");
-        nameElement.innerHTML = entry.item.name;
+        nameElement.innerHTML = entry.cloth.item.name;
+
+        // create amount
+        countElement = document.createElement("p");
+        countElement.classList.add("shopping-count");
+        countElement.innerHTML = entry.amount + "x";
 
         // create price tag
         priceElement = document.createElement("p");
         priceElement.classList.add("shopping-price");
-        priceElement.innerHTML = entry.item.price + "€";
+        priceElement.innerHTML = (entry.cloth.item.price * entry.amount).toFixed(2) + "€";
 
         // maybe we want to display chosen size, color, etc as well
 
@@ -137,14 +144,19 @@ function generateShoppingView() {
         buttonElement = document.createElement("button");
         buttonElement.innerHTML = "Entfernen";
         buttonElement.addEventListener("click", (event) => {
-            // remove item from shopping cart and from html
-            var index = shoppingCart.indexOf(event.srcElement.parentNode.item);
-            if (index > -1) { 
-                shoppingCart.splice(index, 1);
+            if(entry.amount > 1) {
+                entry.amount -= 1;
+            } else {
+                // remove item from shopping cart and from html
+                var index = shoppingCart.indexOf(event.srcElement.parentNode.item);
+                if (index > -1) { 
+                    shoppingCart.splice(index, 1);
+                }
+                event.srcElement.parentNode.remove();
             }
-            event.srcElement.parentNode.remove();
             updateAmountItems();
-            UpdateTotalPrice();
+            generateShoppingView();
+            updateNavigation();
         });
 
         // create list element, which combines image, price, etc. into one
@@ -153,6 +165,7 @@ function generateShoppingView() {
         listElement.item = entry;
         listElement.appendChild(imageElement);
         listElement.appendChild(nameElement);
+        listElement.appendChild(countElement);
         listElement.appendChild(priceElement);
         listElement.appendChild(buttonElement);
 
@@ -169,3 +182,4 @@ function generateShoppingView() {
 
     UpdateTotalPrice();
 }
+

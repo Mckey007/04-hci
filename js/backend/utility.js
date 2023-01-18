@@ -4,7 +4,7 @@ function UpdateTotalPrice() {
     var total = 0.0;
     //itemElement = document.getElementById("shopping-list").children;
     for (var i = 0; i < shoppingCart.length; i++) {
-        total  += Number(shoppingCart[i].item.price);
+        total  += Number(shoppingCart[i].cloth.item.price * shoppingCart[i].amount);
     }
     document.getElementById("totalPrice").innerHTML = total.toFixed(2) + "€";
 }
@@ -23,10 +23,17 @@ function buyShoppingCart() {
 
 function addToShoppingCart() {
     var activeItem = document.getElementsByClassName("activeItem")[0].item;
-
     var copiedItem = Object.assign({}, activeShoppingItem[activeItem.category]);
 
-    shoppingCart.push(copiedItem);
+    // update amount if necessary
+    var index = shoppingCartContains(copiedItem);
+    if(index != -1) {
+        shoppingCart[index].amount += 1;
+        updateAmountItems();
+        return;
+    }
+
+    shoppingCart.push({"cloth": copiedItem, "amount": 1});
     updateAmountItems();
 }
 
@@ -68,4 +75,23 @@ function getPicture(item, key = "") {
     }
 }
 
+function shoppingCartContains(entry) {
+    for(var i = 0; i < shoppingCart.length; i++) {
+        if(shallowEqual(shoppingCart[i].cloth, entry)) return i;
+    }
+    return -1;
+}
 
+function shallowEqual(object1, object2) {
+    const keys1 = Object.keys(object1);
+    const keys2 = Object.keys(object2);
+    if (keys1.length !== keys2.length) {
+      return false;
+    }
+    for (let key of keys1) {
+      if (object1[key] !== object2[key]) {
+        return false;
+      }
+    }
+    return true;
+}
