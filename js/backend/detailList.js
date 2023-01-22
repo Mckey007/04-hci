@@ -54,9 +54,10 @@ function addDetailClothingList(category) {
     }
     if(activeItem == null) {
         document.getElementById("context-buttons").classList.add("hidden");
-
+        document.getElementById("context-infos").classList.add("hidden");
     } else {
         document.getElementById("context-buttons").classList.remove("hidden");
+        document.getElementById("context-infos").classList.remove("hidden");
     }
     // add bar for the active item which allows for swapping color and buying
 }
@@ -67,7 +68,6 @@ function setTradeName() {
 }
 
 function setMaterial(category) {
-    console.log(category);
     var materialNames = ["Wolle"];
     switch(category) {
         case "top-piece":
@@ -129,6 +129,7 @@ function removeDetailClothingList(category) {
     document.getElementById("color-select").innerHTML = "";
     detailList = document.getElementById("detail-list");
     detailList.classList.add("hidden");
+    document.getElementById("context-infos").classList.add("hidden");
     document.getElementById("context-buttons").classList.add("hidden");
     detailList.innerHTML = "";
 }

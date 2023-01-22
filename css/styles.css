@@ -62,7 +62,7 @@ button:active, button:active, #color-select:active {
   color: var(--main-hover);
 }
 
-button, #color-select, #active-item-label {
+button, #color-select, #active-item-label, #context-infos p {
   border-radius: 4px;
   color: var(--main-grey);
   background-color: var(--dark-blue);
@@ -92,6 +92,10 @@ button, #color-select, #active-item-label {
 #active-item-label, #context-infos p {
   background-color: unset;
   color: var(--main-black);
+}
+
+#context-infos p {
+  text-align: center;
 }
 
 .backButton {

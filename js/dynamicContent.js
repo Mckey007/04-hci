@@ -89,6 +89,7 @@ function generateDetailView() {
     // clear everything which might have been generated earlier
     detailAvatar.innerHTML = "";
     detailElement.setAttribute("onclick", "");
+    removeDetailClothingList("");
 
     // generate the clickable areas for each clothing type, e.g. hat, scarf etc.
     if(detailElement.classList.contains("top")) {
