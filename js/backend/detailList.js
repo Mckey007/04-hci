@@ -44,6 +44,9 @@ function addDetailClothingList(category) {
             }
             // add item name
             document.getElementById("active-item-label").innerHTML = activeItem.name + ": " + activeItem.price + "€";
+            setTradeName();
+            setMaterial(activeItem.category);
+
 
         }
         listElement.appendChild(element);
@@ -56,6 +59,38 @@ function addDetailClothingList(category) {
         document.getElementById("context-buttons").classList.remove("hidden");
     }
     // add bar for the active item which allows for swapping color and buying
+}
+
+function setTradeName() {
+    var tradeNames = ["Adidas", "Nike", "Hummel", "Hollister", "Tommy Hilfiger"];
+    document.getElementById("trade").innerText = tradeNames[Math.floor(Math.random() * tradeNames.length)];
+}
+
+function setMaterial(category) {
+    console.log(category);
+    var materialNames = ["Wolle"];
+    switch(category) {
+        case "top-piece":
+        case "bottom-piece":
+        case "scarf":
+            materialNames = ["Baumwolle", "Wolle", "Leder", "Polyester", "Leinen", "Kaschmir", "Lyocell", "Viskose"];
+            break;
+        case "hat":
+        case "gloves":
+            materialNames = ["Wolle", "Baumwolle"];
+            break;
+        case "earring":
+            materialNames = ["Gold", "Silber", "Rose", "Plastik"];
+            break;
+        case "glasses":
+            materialNames = ["Aluminium", "Plastik", "Metall", "Kupfer"];
+            break;
+        case "shoes":
+            materialNames = ["Leder", "Leinen", "Wildleder"];
+            break;
+    }
+    var material = materialNames[Math.floor(Math.random() * materialNames.length)];
+    document.getElementById("material").innerText = material;
 }
 
 function updateDetailList(event) {
