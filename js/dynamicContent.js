@@ -34,6 +34,7 @@ function setPage(path) {
 
 //Set Gender and change to Season-page
 function setGender(gender) {
+
     settings.gender = gender;
     giveDefaultClothes = true;
     setPage("select-season");
@@ -47,11 +48,13 @@ function setSeason(season) {
 }
 
 function generateGenderView() {
+    detailElement = null;
     settings.gender = "";
     settings.season = "";
 }
 
 function generateSeasonView() {
+    detailElement = null;
     settings.season = "";
 }
 
